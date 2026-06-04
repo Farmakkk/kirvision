@@ -18,7 +18,7 @@
       box-sizing: border-box;
     }
 
-    /* Variables */
+    
     :root {
       --bg-body: #f9fafb;
       --bg-surface: #ffffff;
@@ -71,14 +71,14 @@
       padding: 0 1rem;
     }
 
-    /* Desktop padding */
+    
     @media (min-width: 768px) {
       .container {
         padding: 0 1.5rem;
       }
     }
 
-    /* Typography */
+   
     .section {
       margin: 3rem 0;
       scroll-margin-top: 5rem;
@@ -175,7 +175,7 @@
       }
     }
 
-    /* Navigation */
+    
     .navbar {
       position: sticky;
       top: 0;
@@ -235,7 +235,7 @@
       }
     }
 
-    /* Desktop navigation */
+    
     .nav-links {
       display: none;
       position: static;
@@ -277,7 +277,7 @@
       background: var(--accent-soft);
     }
 
-    /* Theme toggle */
+   
     .theme-toggle {
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
@@ -306,7 +306,7 @@
       border-color: var(--accent);
     }
 
-    /* Mobile menu button */
+    
     .mobile-menu-btn {
       display: flex;
       background: var(--bg-surface);
@@ -325,7 +325,7 @@
       }
     }
 
-    /* Mobile menu overlay */
+    
     .mobile-menu-overlay {
       position: fixed;
       top: 0;
@@ -344,7 +344,7 @@
       visibility: visible;
     }
 
-    /* Mobile navigation panel */
+    
     .mobile-nav {
       position: fixed;
       top: 0;
@@ -401,7 +401,7 @@
       padding-left: 0.5rem;
     }
 
-    /* Hero section */
+   
     .hero {
       text-align: center;
       margin: 1.5rem 0 1.5rem;
@@ -468,7 +468,7 @@
       }
     }
 
-    /* Info list */
+    
     .info-list {
       list-style: none;
     }
@@ -501,7 +501,7 @@
       }
     }
 
-    /* Language items */
+    
     .lang-item {
       display: flex;
       flex-direction: column;
@@ -528,7 +528,7 @@
       font-size: 0.85rem;
     }
 
-    /* Timeline */
+    
     .timeline-step {
       margin-bottom: 1rem;
       display: flex;
@@ -548,7 +548,7 @@
       }
     }
 
-    /* Tags */
+   
     .tags-cloud {
       display: flex;
       flex-wrap: wrap;
@@ -556,7 +556,7 @@
       margin: 1rem 0;
     }
 
-    /* Tasks list */
+    
     .tasks-list {
       list-style: none;
     }
@@ -583,7 +583,7 @@
       flex-shrink: 0;
     }
 
-    /* Footer */
+    
     footer {
       text-align: center;
       padding: 2rem 1rem 1.5rem;
@@ -601,7 +601,7 @@
       }
     }
 
-    /* Animations */
+    
     .section {
       opacity: 0;
       transform: translateY(20px);
@@ -613,7 +613,7 @@
       transform: translateY(0);
     }
 
-    /* Utility */
+   
     .text-center {
       text-align: center;
     }
@@ -869,7 +869,7 @@
 
 <script>
   (function() {
-    // Theme toggle
+    
     const themeToggle = document.getElementById('themeToggle');
     const updateThemeIcon = (isDark) => {
       const icon = themeToggle?.querySelector('i');
@@ -904,7 +904,7 @@
       updateThemeIcon(isDark);
     });
     
-    // Mobile menu
+    
     const mobileBtn = document.getElementById('mobileMenuBtn');
     const mobileNav = document.getElementById('mobileNav');
     const mobileOverlay = document.getElementById('mobileOverlay');
@@ -926,7 +926,7 @@
     closeBtn?.addEventListener('click', closeMobileMenu);
     mobileOverlay?.addEventListener('click', closeMobileMenu);
     
-    // Close menu on link click
+    
     document.querySelectorAll('.mobile-nav a').forEach(link => {
       link.addEventListener('click', (e) => {
         closeMobileMenu();
@@ -941,7 +941,7 @@
       });
     });
     
-    // Smooth scroll for desktop links
+    
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', (e) => {
         const targetId = link.getAttribute('href');
@@ -955,7 +955,7 @@
       });
     });
     
-    // Dynamic dates
+    
     const now = new Date();
     const currentYear = now.getFullYear();
     const entranceYear = 2028;
@@ -984,7 +984,7 @@
       relocationSpan.textContent = `${gradYear}–${gradYear + 2}`;
     }
     
-    // Scroll animations
+   
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
