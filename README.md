@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -18,7 +19,7 @@
       box-sizing: border-box;
     }
 
-    
+    /* Variables */
     :root {
       --bg-body: #f9fafb;
       --bg-surface: #ffffff;
@@ -66,19 +67,19 @@
     }
 
     .container {
+      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
     }
 
-    
     @media (min-width: 768px) {
       .container {
         padding: 0 1.5rem;
       }
     }
 
-   
+    /* Section styles */
     .section {
       margin: 3rem 0;
       scroll-margin-top: 5rem;
@@ -175,40 +176,47 @@
       }
     }
 
-    
+    /* ===== НАВИГАЦИЯ - ПОЛНОСТЬЮ ПЕРЕДЕЛАНА ===== */
     .navbar {
       position: sticky;
       top: 0;
+      left: 0;
+      right: 0;
       backdrop-filter: blur(16px);
       background-color: var(--nav-bg);
       border-bottom: 1px solid var(--border-light);
       z-index: 1000;
-      padding: 0.6rem 0;
+      width: 100%;
     }
 
-    @media (min-width: 768px) {
-      .navbar {
-        padding: 0.75rem 0;
-      }
-    }
-
-    .nav-content {
+    .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
-      flex-wrap: wrap;
+      gap: 0.5rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.6rem 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-container {
+        padding: 0.75rem 1.5rem;
+        gap: 1rem;
+      }
     }
 
     .logo {
       font-weight: 800;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       letter-spacing: -0.02em;
       background: linear-gradient(135deg, var(--accent), #5a9e4b);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       flex-shrink: 0;
+      white-space: nowrap;
     }
 
     @media (min-width: 480px) {
@@ -224,7 +232,7 @@
     }
 
     .logo-sub {
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       font-weight: 400;
       color: var(--text-muted);
     }
@@ -235,23 +243,23 @@
       }
     }
 
-    
+    /* Desktop navigation - без точек */
     .nav-links {
       display: none;
-      position: static;
-      flex-direction: row;
-      gap: 0.25rem;
-      background: none;
+      list-style: none;
+      margin: 0;
       padding: 0;
-      box-shadow: none;
-      width: auto;
-      height: auto;
+      gap: 0.25rem;
     }
 
     @media (min-width: 992px) {
       .nav-links {
         display: flex;
       }
+    }
+
+    .nav-links li {
+      list-style: none;
     }
 
     .nav-links a {
@@ -277,14 +285,14 @@
       background: var(--accent-soft);
     }
 
-   
+    /* Theme toggle */
     .theme-toggle {
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: 2rem;
-      padding: 0.35rem 0.85rem;
+      padding: 0.35rem 0.8rem;
       cursor: pointer;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       display: flex;
       align-items: center;
       gap: 0.4rem;
@@ -306,17 +314,20 @@
       border-color: var(--accent);
     }
 
-    
+    /* Mobile menu button */
     .mobile-menu-btn {
       display: flex;
+      align-items: center;
+      justify-content: center;
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: 0.5rem;
       padding: 0.4rem 0.7rem;
       cursor: pointer;
       color: var(--text-primary);
-      font-size: 1.1rem;
+      font-size: 1rem;
       transition: var(--transition);
+      flex-shrink: 0;
     }
 
     @media (min-width: 992px) {
@@ -325,7 +336,11 @@
       }
     }
 
-    
+    .mobile-menu-btn:active {
+      background: var(--accent-soft);
+    }
+
+    /* Mobile menu overlay */
     .mobile-menu-overlay {
       position: fixed;
       top: 0;
@@ -344,7 +359,7 @@
       visibility: visible;
     }
 
-    
+    /* Mobile navigation panel - без точек */
     .mobile-nav {
       position: fixed;
       top: 0;
@@ -357,8 +372,6 @@
       box-shadow: var(--shadow-lg);
       display: flex;
       flex-direction: column;
-      padding: 1.5rem;
-      gap: 0.5rem;
       overflow-y: auto;
     }
 
@@ -370,38 +383,52 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 1rem;
+      padding: 1rem 1.25rem;
       border-bottom: 1px solid var(--border-light);
-      margin-bottom: 1rem;
     }
 
     .mobile-nav-close {
       background: none;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       cursor: pointer;
       color: var(--text-secondary);
       padding: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .mobile-nav a {
+    .mobile-nav-links {
+      list-style: none;
+      padding: 0.5rem 0;
+      margin: 0;
+    }
+
+    .mobile-nav-links li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .mobile-nav-links a {
+      display: block;
       text-decoration: none;
       font-size: 1rem;
       font-weight: 500;
       color: var(--text-secondary);
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border-light);
+      padding: 0.9rem 1.25rem;
       transition: var(--transition);
-      display: block;
+      border-bottom: 1px solid var(--border-light);
     }
 
-    .mobile-nav a:active {
+    .mobile-nav-links a:active {
       color: var(--accent);
       background: var(--accent-soft);
-      padding-left: 0.5rem;
+      padding-left: 1.5rem;
     }
 
-   
+    /* Hero */
     .hero {
       text-align: center;
       margin: 1.5rem 0 1.5rem;
@@ -468,7 +495,7 @@
       }
     }
 
-    
+    /* Info list */
     .info-list {
       list-style: none;
     }
@@ -501,7 +528,7 @@
       }
     }
 
-    
+    /* Language items */
     .lang-item {
       display: flex;
       flex-direction: column;
@@ -528,7 +555,7 @@
       font-size: 0.85rem;
     }
 
-    
+    /* Timeline */
     .timeline-step {
       margin-bottom: 1rem;
       display: flex;
@@ -548,7 +575,7 @@
       }
     }
 
-   
+    /* Tags */
     .tags-cloud {
       display: flex;
       flex-wrap: wrap;
@@ -556,7 +583,7 @@
       margin: 1rem 0;
     }
 
-    
+    /* Tasks list */
     .tasks-list {
       list-style: none;
     }
@@ -583,7 +610,7 @@
       flex-shrink: 0;
     }
 
-    
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem 1rem 1.5rem;
@@ -601,7 +628,7 @@
       }
     }
 
-    
+    /* Animations */
     .section {
       opacity: 0;
       transform: translateY(20px);
@@ -613,7 +640,6 @@
       transform: translateY(0);
     }
 
-   
     .text-center {
       text-align: center;
     }
@@ -621,8 +647,9 @@
 </head>
 <body>
 
+<!-- НАВИГАЦИЯ - УПРОЩЁННАЯ И БЕЗ ТОЧЕК -->
 <nav class="navbar">
-  <div class="container nav-content">
+  <div class="nav-container">
     <div class="logo">
       KIRVISION <span class="logo-sub">· full-stack journey</span>
     </div>
@@ -631,8 +658,8 @@
       <i class="fas fa-bars"></i>
     </button>
     
-    <!-- Desktop navigation -->
-    <ul class="nav-links" id="desktopNav">
+    <!-- Desktop navigation - без точек -->
+    <ul class="nav-links">
       <li><a href="#about">О себе</a></li>
       <li><a href="#education">Образование</a></li>
       <li><a href="#languages">Языки</a></li>
@@ -653,7 +680,7 @@
 <!-- Mobile menu overlay -->
 <div class="mobile-menu-overlay" id="mobileOverlay"></div>
 
-<!-- Mobile navigation panel -->
+<!-- Mobile navigation panel - без точек -->
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-header">
     <span class="logo" style="font-size: 1.2rem;">KIRVISION</span>
@@ -661,14 +688,16 @@
       <i class="fas fa-times"></i>
     </button>
   </div>
-  <a href="#about">О себе</a>
-  <a href="#education">Образование</a>
-  <a href="#languages">Языки</a>
-  <a href="#relocation">Переезд</a>
-  <a href="#finance">Финансы</a>
-  <a href="#traits">Качества</a>
-  <a href="#tasks">Задачи</a>
-  <a href="#mission">Миссия</a>
+  <ul class="mobile-nav-links">
+    <li><a href="#about">О себе</a></li>
+    <li><a href="#education">Образование</a></li>
+    <li><a href="#languages">Языки</a></li>
+    <li><a href="#relocation">Переезд</a></li>
+    <li><a href="#finance">Финансы</a></li>
+    <li><a href="#traits">Качества</a></li>
+    <li><a href="#tasks">Задачи</a></li>
+    <li><a href="#mission">Миссия</a></li>
+  </ul>
 </div>
 
 <main>
@@ -780,7 +809,7 @@
     <section id="finance" class="section">
       <h2 class="section-title">
         <i class="fas fa-chart-line"></i>
-        Финансы &amp; жильё
+        Финансы и жильё
       </h2>
       <div class="grid-2col">
         <div class="card">
@@ -869,7 +898,7 @@
 
 <script>
   (function() {
-    
+    // Theme toggle
     const themeToggle = document.getElementById('themeToggle');
     const updateThemeIcon = (isDark) => {
       const icon = themeToggle?.querySelector('i');
@@ -904,7 +933,7 @@
       updateThemeIcon(isDark);
     });
     
-    
+    // Mobile menu
     const mobileBtn = document.getElementById('mobileMenuBtn');
     const mobileNav = document.getElementById('mobileNav');
     const mobileOverlay = document.getElementById('mobileOverlay');
@@ -926,8 +955,8 @@
     closeBtn?.addEventListener('click', closeMobileMenu);
     mobileOverlay?.addEventListener('click', closeMobileMenu);
     
-    
-    document.querySelectorAll('.mobile-nav a').forEach(link => {
+    // Close menu on link click
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
       link.addEventListener('click', (e) => {
         closeMobileMenu();
         const targetId = link.getAttribute('href');
@@ -941,7 +970,7 @@
       });
     });
     
-    
+    // Smooth scroll for desktop links
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', (e) => {
         const targetId = link.getAttribute('href');
@@ -955,7 +984,7 @@
       });
     });
     
-    
+    // Dynamic dates
     const now = new Date();
     const currentYear = now.getFullYear();
     const entranceYear = 2028;
@@ -984,7 +1013,7 @@
       relocationSpan.textContent = `${gradYear}–${gradYear + 2}`;
     }
     
-   
+    // Scroll animations
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
