@@ -464,7 +464,7 @@
       });
     }
 
-    // Динамические даты (поступление 2028, окончание вуза 2032)
+   
     const now = new Date();
     const currentYear = now.getFullYear();
     const entranceYear = 2028;
@@ -491,8 +491,6 @@
     if (relocationSpan) {
       relocationSpan.innerText = `${gradYear}–${gradYear+2}`;
     }
-
-    // анимация появления секций с intersection observer
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -503,8 +501,6 @@
       });
     }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
     sections.forEach(section => observer.observe(section));
-
-    // доп заметка о переезде
     const makeRelocationNote = () => {
       const targetReloc = 2032;
       let yearsToReloc = targetReloc - currentYear;
