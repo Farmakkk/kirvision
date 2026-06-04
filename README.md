@@ -90,6 +90,7 @@
       }
     }
 
+    /* Заголовки БЕЗ точек на конце */
     .section-title {
       font-size: 1.5rem;
       font-weight: 700;
@@ -175,7 +176,7 @@
       }
     }
 
-    /* ===== НАВИГАЦИЯ - ПОЛНОСТЬЮ ПЕРЕДЕЛАНА ===== */
+    /* ===== НАВИГАЦИЯ ===== */
     .navbar {
       position: sticky;
       top: 0;
@@ -242,7 +243,7 @@
       }
     }
 
-    /* Desktop navigation - без точек */
+    /* Desktop navigation */
     .nav-links {
       display: none;
       list-style: none;
@@ -339,7 +340,7 @@
       background: var(--accent-soft);
     }
 
-    /* Mobile menu overlay */
+    /* Mobile menu overlay - затемнение фона */
     .mobile-menu-overlay {
       position: fixed;
       top: 0;
@@ -358,7 +359,7 @@
       visibility: visible;
     }
 
-    /* Mobile navigation panel - без точек */
+    /* Mobile navigation panel - выезжает ПОД шапкой, а не поверх */
     .mobile-nav {
       position: fixed;
       top: 0;
@@ -372,6 +373,14 @@
       display: flex;
       flex-direction: column;
       overflow-y: auto;
+      padding-top: 60px; /* Отступ сверху, чтобы не сливалось с шапкой */
+    }
+
+    /* Адаптация под разные размеры шапки */
+    @media (min-width: 768px) {
+      .mobile-nav {
+        padding-top: 70px;
+      }
     }
 
     .mobile-nav.active {
@@ -382,8 +391,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 1.25rem;
+      padding: 0.75rem 1.25rem;
       border-bottom: 1px solid var(--border-light);
+      background: var(--bg-surface);
     }
 
     .mobile-nav-close {
@@ -400,7 +410,7 @@
 
     .mobile-nav-links {
       list-style: none;
-      padding: 0.5rem 0;
+      padding: 0;
       margin: 0;
     }
 
@@ -646,7 +656,7 @@
 </head>
 <body>
 
-<!-- НАВИГАЦИЯ - УПРОЩЁННАЯ И БЕЗ ТОЧЕК -->
+<!-- НАВИГАЦИЯ -->
 <nav class="navbar">
   <div class="nav-container">
     <div class="logo">
@@ -657,7 +667,7 @@
       <i class="fas fa-bars"></i>
     </button>
     
-    <!-- Desktop navigation - без точек -->
+    <!-- Desktop navigation -->
     <ul class="nav-links">
       <li><a href="#about">О себе</a></li>
       <li><a href="#education">Образование</a></li>
@@ -679,7 +689,7 @@
 <!-- Mobile menu overlay -->
 <div class="mobile-menu-overlay" id="mobileOverlay"></div>
 
-<!-- Mobile navigation panel - без точек -->
+<!-- Mobile navigation panel - с отступом сверху, чтобы не сливаться с шапкой -->
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-header">
     <span class="logo" style="font-size: 1.2rem;">KIRVISION</span>
@@ -710,7 +720,7 @@
       <p>«Пишу код, верстаю интерфейсы, строю будущее через дисциплину и технологии»</p>
     </div>
 
-    <!-- About -->
+    <!-- About - без точки в заголовке -->
     <section id="about" class="section">
       <h2 class="section-title">
         <i class="fas fa-user-astronaut"></i>
